@@ -26,7 +26,7 @@ const Login = () => {
                 }
                 console.log(currentUser);
                 //jwt token 
-                // fetch('http://localhost:5000/jwt', {
+                // fetch('https://service-review-server-side-delta.vercel.app/jwt', {
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'
