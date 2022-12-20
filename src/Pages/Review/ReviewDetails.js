@@ -10,19 +10,22 @@ const ReviewDetails = ({ id }) => {
                 setReview(data)
             })
     }, [])
-
+    console.log(review)
     return (
-        <div className="hero min-h-min my-5 w-1/2 mx-auto bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-                <img src={image} alt="" className="max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                    <h1 className="text-5xl font-bold">{review.serviceName}</h1>
-                    <p className="py-2 text-xl font-bold">{review.message}</p>
-                    <p className="py-2 text-xl font-bold">Customer: {review.customer}</p>
-                    <p className="py-2 text-xl font-bold">Rating: {review.ratings}</p>
+        <div className={review.length === 0 ? 'hidden' : ''}>
+            <div className="hero min-h-min my-5 w-1/2 mx-auto bg-base-200">
+                <div className="hero-content flex-col lg:flex-row">
+                    <img src={image} alt="" className="max-w-sm rounded-lg shadow-2xl" />
+                    <div>
+                        <h1 className="text-5xl font-bold">{review.serviceName}</h1>
+                        <p className="py-2 text-xl font-bold">{review.message}</p>
+                        <p className="py-2 text-xl font-bold">Customer: {review.customer}</p>
+                        <p className="py-2 text-xl font-bold">Rating: {review.ratings}</p>
+                    </div>
                 </div>
             </div>
         </div>
+
     );
 };
 
