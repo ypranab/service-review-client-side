@@ -24,21 +24,20 @@ const Login = () => {
                 }
                 console.log(currentUser);
                 //jwt token 
-                fetch('https://genius-car-server-woad-six.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        //console.log(data.token);
-                        // local storage is the easiest but not the best place to store jwt token
-                        localStorage.setItem('genius-token', data.token);
-                        navigate(from, { replace: true });
-                    });
-                navigate(from, { replace: true })
+                // fetch('http://localhost:5000/jwt', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(currentUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         //console.log(data.token);
+                //         localStorage.setItem('review-token', data.token);
+                //         navigate(from, { replace: true });
+                //     });
+                // navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
