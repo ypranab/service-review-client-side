@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DynamicTitle from '../hooks/DynamicTitle';
 import ServiceCard from './Services/ServiceCard';
 
 const Home = () => {
+    DynamicTitle('Home');
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/home_services')

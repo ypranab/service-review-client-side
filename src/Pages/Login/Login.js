@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import image from '../../assests/login.svg'
+import DynamicTitle from '../../hooks/DynamicTitle';
 
 const Login = () => {
+    DynamicTitle('Login')
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
