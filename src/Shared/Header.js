@@ -15,8 +15,13 @@ const Header = () => {
             user?.email ?
                 <>
                     <li>
-                        <button className='btn btn-outline btn-warning fonst-semibold'><Link to='/services'>Services</Link></button>
-                    </li>
+                        <button className='btn btn-outline btn-warning fonst-semibold'>
+                            <Link to='/service'>Add Service</Link>
+                        </button></li>
+                    <li>
+                        <button className='btn btn-outline btn-warning fonst-semibold'>
+                            <Link to='/reviews'>My Reviews</Link>
+                        </button></li>
                     <li><button className='btn btn-outline btn-warning' onClick={handleLogOut}>
                         <Link to='/'>Logout</Link>
                     </button></li>

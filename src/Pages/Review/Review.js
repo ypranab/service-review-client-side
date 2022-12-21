@@ -28,7 +28,7 @@ const Review = () => {
             ratings
         }
 
-        fetch('https://service-review-server-side-delta.vercel.app/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

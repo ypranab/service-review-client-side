@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import DynamicTitle from '../../hooks/DynamicTitle';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
+    DynamicTitle('Services')
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('https://service-review-server-side-delta.vercel.app/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

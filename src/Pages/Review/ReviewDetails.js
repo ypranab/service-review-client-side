@@ -4,7 +4,7 @@ const ReviewDetails = ({ id }) => {
     const [review, setReview] = useState([]);
     const image = 'https://scontent.fdac34-1.fna.fbcdn.net/v/t39.30808-1/275445093_2433731623424311_8557171193280420878_n.jpg?stp=c55.23.60.60a_cp0_dst-jpg_p120x120&_nc_cat=106&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeG-wEv73m53HbOUipjh9_21XViQWnxHJJJdWJBafEckkgTzPj_T6GOLGLJNFM76Tr6ywkvkM3gN2os7bKxRJTGH&_nc_ohc=3_a1QXoWKhsAX9cZ3mj&_nc_ht=scontent.fdac34-1.fna&oh=00_AfDTXMSrUgXnX_CmbrPiraTvTzLhliJ0Pr_oXVk8D1qj7w&oe=63A63A3C'
     useEffect(() => {
-        fetch(`https://service-review-server-side-delta.vercel.app/reviews/${id}`)
+        fetch(`http://localhost:5000/reviews/${id}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data)
