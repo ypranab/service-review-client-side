@@ -14,6 +14,7 @@ const AddService = () => {
         const service = form.service.value;
         const price = form.price.value;
         const details = form.details.value;
+		const company = form.company.value;
         const url = form.url.value;
         const ratings = rating;
 
@@ -22,6 +23,7 @@ const AddService = () => {
             price: price,
             rating: ratings,
             details: details,
+			company: company,
             image: url
         }
 
@@ -60,7 +62,7 @@ const AddService = () => {
                 </label>
                 <label className="input-group input-group-vertical mb-5">
                     <span>Company</span>
-                    <input type="text" placeholder="Company" className="input input-bordered" />
+                    <input type="text" name='company' placeholder="Company" className="input input-bordered" />
                 </label>
                 <label className="input-group input-group-vertical mb-5">
                     <span>Details</span>

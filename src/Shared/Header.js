@@ -12,7 +12,7 @@ const Header = () => {
     }
     const menuItems = <>
         {
-            user?.email ?
+            user ?
                 <>
                     <li>
                         <button className='btn btn-outline btn-warning fonst-semibold'>
@@ -43,6 +43,7 @@ const Header = () => {
                 </Link>
                 <ul className="ml-6">
                     <li className='fonst-semibold'><Link to='/'>
+                        {console.log(user?.email)}
                         <button className='btn btn-primary'>Home</button>
                     </Link></li>
                 </ul>

@@ -6,7 +6,7 @@ import DynamicTitle from '../../hooks/DynamicTitle';
 
 const Login = () => {
     DynamicTitle('Login')
-    const { login } = useContext(AuthContext);
+    const { login, googleSignIn, gitHubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -44,6 +44,61 @@ const Login = () => {
             .catch(error => console.error(error))
     }
 
+    const handleGoogleSign = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+                const currentUser = {
+                    email: user.email
+                }
+                //jwt token 
+                fetch('https://service-review-server-side-delta.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('review-token', data.token);
+                        navigate(from, { replace: true })
+                    });
+                //navigate(from, { replace: true })
+            })
+            .catch(err => console.error(err))
+    }
+
+    const handleGitHubSignIn = () => {
+        gitHubSignIn()
+            .then(result => {
+                const user = result.user;
+                const currentUser = {
+                    email: user.email
+                }
+                //jwt token 
+                fetch('https://service-review-server-side-delta.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('review-token', data.token);
+                        navigate(from, { replace: true })
+                    });
+                //navigate(from, { replace: true });
+                //console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
@@ -71,6 +126,10 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input type="submit" className="btn btn-primary" value="Login" />
                         </div>
+                        <p className='text-center'>
+                            <button onClick={handleGoogleSign} className='btn btn-error'>Google Sign in </button>
+                            <button onClick={handleGitHubSignIn} className='btn btn-accent ml-9'>GitHub Sign in </button>
+                        </p>
                         <p className='text-center'>New User <Link className='font-bold' to='/signup'>Sign Up</Link></p>
                     </form>
                 </div>

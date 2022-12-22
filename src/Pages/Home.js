@@ -5,7 +5,9 @@ import ServiceCard from './Services/ServiceCard';
 
 const Home = () => {
     DynamicTitle('Home');
-    const banner = "https://i.ibb.co/H2cgsw5/enterprise-software-development.png"
+    const banner1 = "https://i.ibb.co/H2cgsw5/enterprise-software-development.png"
+	const banner2 = "https://i.ibb.co/HLSBr3b/server-setup.png"
+	const banner3 = "https://i.ibb.co/J5KXBkw/1513057150-nd-FG392-CJi-service-body-image-software-consultancy.png"
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('https://service-review-server-side-delta.vercel.app/home_services')
@@ -17,28 +19,28 @@ const Home = () => {
         <div>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <img src={banner} alt='' className="w-full h-3/4" />
+                    <img src={banner1} alt='' className="w-full h-3/4" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
-                    <img src={banner} alt='' className="w-full h-3/4" />
+                    <img src={banner2} alt='' className="w-full h-3/4" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide1" className="btn btn-circle">❮</a>
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
-                    <img src={banner} alt='' className="w-full h-3/4" />
+                    <img src={banner3} alt='' className="w-full h-3/4" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide2" className="btn btn-circle">❮</a>
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
-                    <img src={banner} alt='' className="w-full h-3/4" />
+                    <img src={banner1} alt='' className="w-full h-3/4" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>
