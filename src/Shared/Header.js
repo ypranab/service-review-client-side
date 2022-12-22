@@ -41,8 +41,10 @@ const Header = () => {
                 <Link to="/">
                     <img src={logo} alt="" />
                 </Link>
-                <ul className="menu menu-horizontal px-1">
-                    <li className='fonst-semibold'><Link to='/'>Home</Link></li>
+                <ul className="ml-6">
+                    <li className='fonst-semibold'><Link to='/'>
+                        <button className='btn btn-primary'>Home</button>
+                    </Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

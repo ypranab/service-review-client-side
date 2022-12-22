@@ -28,7 +28,7 @@ const Review = () => {
             ratings
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://service-review-server-side-delta.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -48,16 +48,20 @@ const Review = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-5xl text-center'>Review Service</h2>
+        <div className='w-3/4 mx-auto'>
+            <h2 className="text-4xl">You are about to review: {title}</h2>
             <h3 className='m-5'>{details}</h3>
-            <img src={image} alt="" />
-            <form onSubmit={handlePlaceReview}>
-                <h2 className="text-4xl">You are about to review: {title}</h2>
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                    <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
-                    <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
+            <img src={image} className='w-1/2' alt="" />
+            <h2 className='text-5xl text-center'>Give Your Review</h2>
+            <form onSubmit={handlePlaceReview} className='mb-5'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 my-5'>
+                    <input name="firstName" type="text" placeholder="Name" className="input input-ghost w-full input-bordered" />
+                    <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full input-bordered" readOnly />
                 </div>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                    <textarea name="message" className="textarea textarea-bordered h-24 my-5" placeholder="Your Review" required></textarea>
+                </div>
+                <span className='text-2xl'>Rate the Service </span>
                 <div className="rating" onChange={handleRating}>
                     <input type="radio" name="1" className="mask mask-star-2 bg-orange-400" />
                     <input type="radio" name="2" className="mask mask-star-2 bg-orange-400" />
@@ -65,9 +69,8 @@ const Review = () => {
                     <input type="radio" name="4" className="mask mask-star-2 bg-orange-400" />
                     <input type="radio" name="5" className="mask mask-star-2 bg-orange-400" />
                 </div>
-                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Review" required></textarea>
-
-                <input className='btn' type="submit" value="Submit" />
+                <br />
+                <input className='btn btn-error my-5' type="submit" value="Submit" />
             </form>
         </div>
     );

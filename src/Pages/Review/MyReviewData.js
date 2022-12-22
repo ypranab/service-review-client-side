@@ -1,13 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const MyReviewData = ({ review }) => {
-    const { serviceName, price, customer, message } = review;
+const MyReviewData = ({ review, handleDelete, handleUpdate }) => {
+    const { _id, serviceName, ratings, customer, message } = review;
     return (
-        <div className="flex items-center space-x-3">
-            <h3 className="text-xl font-bold">{customer}</h3>
-            <h3 className="text-xl opacity-50">{serviceName}</h3>
-            <h3 className="text-sm opacity-50">{price}</h3>
-            <h3 className="text-sm opacity-50">{message}</h3>
+        <div className="card w-full bg-base-100 shadow-xl">
+            <div className="card-body">
+                <h2 className="card-title">{serviceName}</h2>
+                <p>Reviewer: {customer}</p>
+                <p>{message}</p>
+                <p>Rating: {ratings}</p>
+                <div className="card-actions justify-end">
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                    <Link to={`/updated-reviews/${_id}`}>
+                        <button className="btn btn-primary">Update</button>
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 };

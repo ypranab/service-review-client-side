@@ -8,7 +8,7 @@ const Home = () => {
     const banner = "https://i.ibb.co/H2cgsw5/enterprise-software-development.png"
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/home_services')
+        fetch('https://service-review-server-side-delta.vercel.app/home_services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

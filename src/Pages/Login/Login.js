@@ -26,7 +26,7 @@ const Login = () => {
                 }
                 console.log(currentUser);
                 //jwt token 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://service-review-server-side-delta.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -63,7 +63,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
                             <label className="label">
                                 <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -71,7 +71,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input type="submit" className="btn btn-primary" value="Login" />
                         </div>
-                        <p className='text-center'>New to Genius Car <Link className='font-bold' to='/signup'>Sign Up</Link></p>
+                        <p className='text-center'>New User <Link className='font-bold' to='/signup'>Sign Up</Link></p>
                     </form>
                 </div>
             </div>
